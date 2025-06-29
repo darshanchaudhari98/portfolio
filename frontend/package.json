@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "https://darshan-chaudhari.onrender.com",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@glidejs/glide": "^3.7.1",
