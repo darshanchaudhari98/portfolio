@@ -13,7 +13,7 @@ import {
 } from "framer-motion";
 import { zoomIn } from "../../services/variants";
 import "../../styles/HomePage.css";
-// import ProfilePhoto from `${process.env.PUBLIC_URL}/Kartavya.webp`;
+// import ProfilePhoto from `${process.env.PUBLIC_URL}/Darshan.webp`;
 
 function HomePage({ isBatterySavingOn, scrolled, addTab, sendQuery }) {
   const [clicked, setClicked] = useState(false);
@@ -131,7 +131,7 @@ function HomePage({ isBatterySavingOn, scrolled, addTab, sendQuery }) {
     if (!trimmed) return;
     // open the AIChatTab and pass the initialQuery in its data
     addTab("AIChatTab", {
-      title: "Kartavya's AI Companion",
+      title: "Darshan's AI Companion",
     });
     sendQuery(trimmed);
     // setQuery(trimmed);
@@ -235,7 +235,7 @@ function HomePage({ isBatterySavingOn, scrolled, addTab, sendQuery }) {
                 whileInView={"show"}
               >
                 <animated.img
-                  src={`${process.env.PUBLIC_URL}/Kartavya.webp`}
+                  src={`${process.env.PUBLIC_URL}/Darshan.webp`}
                   alt="Profile"
                   className={`profile-picture img-circle${frames[frameIndex]}`}
                   draggable="false"
@@ -267,7 +267,7 @@ function HomePage({ isBatterySavingOn, scrolled, addTab, sendQuery }) {
                 initial="hidden"
                 animate="show"
               >
-                Kartavya Singh
+                Darshan Chaudhari
               </motion.h1>
 
               {/* Changing Text Animation */}
@@ -342,7 +342,7 @@ function HomePage({ isBatterySavingOn, scrolled, addTab, sendQuery }) {
                     // onTouchEnd={stop}
                     onClick={(e) => {
                       e.preventDefault();
-                      addTab("AIChatTab", { title: "Kartavya's AI Companion" });
+                      addTab("AIChatTab", { title: "Darshan's AI Companion" });
                     }}
                     aria-label={"Open AI Companion Tab"}
                   >

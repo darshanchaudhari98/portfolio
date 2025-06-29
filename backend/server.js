@@ -206,12 +206,14 @@ setInterval(async () => {
     const dataRoutes = require("./routes/dataRoutes");
     app.register(dataRoutes, { prefix: "/api" });
 
+    // AI Routes
     const aiRoutes = require("./routes/aiRoutes");
     app.register(aiRoutes, { prefix: "/api/ai" });
 
     const imagesRoutes = require("./routes/imagesRoutes");
     app.register(imagesRoutes, { prefix: "/api/images" });
 
+    // AI Context Manager
     const aiContextManager = require("./controllers/aiContextManager");
     await aiContextManager.initContext();
     console.log("✅ AI context initialized");

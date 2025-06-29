@@ -9,7 +9,7 @@ import NavBar from "./components/SpecialComponents/NavBar";
 import HomePage from "./components/HomePage/HomePage";
 import AboutPage from "./components/AboutPage/AboutPage";
 import SkillPage from "./components/SkillPage/SkillPage";
-import ExperiencePage from "./components/ExperiencePage/ExperiencePage";
+
 import ProjectPage from "./components/ProjectPage/ProjectPage";
 import ContactPage from "./components/ContactPage/ContactPage";
 import WindowModal from "./components/WindowModal/WindowModal";
@@ -374,7 +374,7 @@ function App({ isBatterySavingOn, setIsBatterySavingOn }) {
                   <AboutPage isBatterySavingOn={isBatterySavingOn} />
         <SkillPage isBatterySavingOn={isBatterySavingOn} />
         <ProjectPage addTab={addTab} isBatterySavingOn={isBatterySavingOn} />
-        <ExperiencePage addTab={addTab} isBatterySavingOn={isBatterySavingOn} />
+
           </>
         )} */}
         <AboutPage
@@ -403,11 +403,7 @@ function App({ isBatterySavingOn, setIsBatterySavingOn }) {
             isWindowModalVisible={isWindowModalVisible}
           />
         </div>
-        <ExperiencePage
-          addTab={addTab}
-          isBatterySavingOn={isBatterySavingOn}
-          isWindowModalVisible={isWindowModalVisible}
-        />
+
         <ContactPage isBatterySavingOn={isBatterySavingOn} addTab={addTab} />
         <Links
           isBatterySavingOn={isBatterySavingOn}
@@ -439,7 +435,7 @@ function App({ isBatterySavingOn, setIsBatterySavingOn }) {
             <motion.div
               className={`ai-chat-btn`}
               onClick={() => {
-                addTab("AIChatTab", { title: "Kartavya's AI Companion" });
+                addTab("AIChatTab", { title: "Darshan's AI Companion" });
               }}
               title="Links"
               initial={isBatterySavingOn ? {} : { opacity: 0, scale: 0 }}

@@ -4,24 +4,24 @@ import { zoomIn, fadeIn } from "../../services/variants";
 import { styled } from "@stitches/react";
 import "../../styles/AboutPage.css";
 import { SpotlightBG } from "./SpotlightBG";
-// import AboutImg from "../../../public/Kartavya-Profile-Photo.webp";
-import Resume from "../../assets/Singh_Kartavya_Resume2025.pdf";
+// import AboutImg from "../../../public/Darshan-Profile-Photo.webp";
+import Resume from "../../assets/Darshan_Chaudhari_Resume2025.pdf";
 
 const aboutData = [
   {
     icon: "bx bxs-hourglass about-icon",
-    title: "Coding Hours",
-    subtitle: "1300+ Hours",
+    title: "Development",
+    subtitle: "Flutter & Android",
   },
   {
     icon: "bx bx-trophy about-icon",
-    title: "Completed",
-    subtitle: "42+ Projects",
+    title: "Projects",
+    subtitle: "Mobile & Web Apps",
   },
   {
     icon: "bx bx-support about-icon",
-    title: "LeetCode",
-    subtitle: "246+ Solutions",
+    title: "Focus",
+    subtitle: "AI & Full Stack",
   },
 ];
 
@@ -75,7 +75,7 @@ function AboutPage({ isBatterySavingOn, isWindowModalVisible, addTab }) {
           <div className="about-container">
             <motion.div className="about-row">
               <motion.img
-                src={`${process.env.PUBLIC_URL}/Kartavya-Profile-Photo.webp`}
+                src={`${process.env.PUBLIC_URL}/Darshan-Profile-Photo.webp`}
                 className="about-image"
                 alt="Profile"
                 variants={isBatterySavingOn ? {} : fadeIn("right", 200, 0)}
@@ -114,18 +114,15 @@ function AboutPage({ isBatterySavingOn, isWindowModalVisible, addTab }) {
                 whileInView="show"
                 exit="hidden"
               >
-                <span className="about-name">Kartavya Singh</span>
+                <span className="about-name">Darshan Chaudhari</span>
                 <p className="about-role">
-                  UC '26, B.S & M.Eng in Computer Science, Full Stack Software
-                  Developer
+                  B.Tech ECS Student | Flutter & Android Developer | Full Stack Developer
                 </p>
                 <p className="about-description">
-                  I'm Kartavya Singh, a Computer Science senior at the
-                  University of Cincinnati, passionate about creating impactful
-                  AI solutions, experienced in Full Stack Development. My
-                  journey is driven by curiosity and a commitment to continuous
-                  learning through hackathons, personal projects, and real-world
-                  applications.
+                  I'm Darshan Chaudhari, a passionate B.Tech Electronics and Computer Science
+                  student with hands-on experience in Flutter, Android, and Full Stack
+                  development. I excel in building scalable tech solutions and solving
+                  real-world challenging problems through scalable tech and design thinking.
                 </p>
               </motion.div>
               <motion.h2
@@ -170,7 +167,7 @@ function AboutPage({ isBatterySavingOn, isWindowModalVisible, addTab }) {
                 </motion.a>
                 <motion.a
                   href={Resume}
-                  download="Kartavya-Singh-Resume-2025.pdf"
+                  download="Darshan-Chaudhari-Resume-2025.pdf"
                   className="download-cv"
                   style={{ userSelect: "none" }}
                   draggable={false}
@@ -206,7 +203,7 @@ function AboutPage({ isBatterySavingOn, isWindowModalVisible, addTab }) {
                   <StyledButton
                     onClick={(e) => {
                       e.preventDefault();
-                      addTab("FeedTab", { title: "Kartavya's Feed" });
+                      addTab("FeedTab", { title: "Darshan's Feed" });
                     }}
                   >
                     <ButtonShadow />
@@ -218,7 +215,7 @@ function AboutPage({ isBatterySavingOn, isWindowModalVisible, addTab }) {
                   <StyledButton
                     onClick={(e) => {
                       e.preventDefault();
-                      addTab("AIChatTab", { title: "Kartavya's AI Companion" });
+                      addTab("AIChatTab", { title: "Darshan's AI Companion" });
                     }}
                   >
                     <ButtonShadow />

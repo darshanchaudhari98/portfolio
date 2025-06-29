@@ -69,8 +69,8 @@ async function fetchRepoLanguages(languagesUrl) {
 // 1) Define your static must-load images
 const MUST_LOAD_IMAGES = [
   "/home-bg.webp",
-  "/Kartavya.webp",
-  "/Kartavya-Profile-Photo.webp",
+  "/Darshan.webp",
+  "/Darshan-Profile-Photo.webp",
   "/contact-bg.webp",
   "/system-user.webp",
   "/user-icon.svg",
@@ -1008,7 +1008,7 @@ const addLike = async (request, reply) => {
 const compareAdminName = async (request, reply) => {
   const { userName } = request.body;
   const db = getDB();
-  const admin = await db.collection("KartavyaPortfolio").findOne({});
+  const admin = await db.collection("DarshanPortfolio").findOne({});
   if (!admin) {
     return reply.code(404).send({ message: "No Admin found." });
   }
@@ -1021,7 +1021,7 @@ const compareAdminPassword = async (request, reply) => {
   const { password } = request.body;
   const db = getDB();
   try {
-    const admin = await db.collection("KartavyaPortfolio").findOne({});
+    const admin = await db.collection("DarshanPortfolio").findOne({});
     if (!admin) {
       return reply.code(404).send({ message: "Admin not found" });
     }
@@ -1032,8 +1032,8 @@ const compareAdminPassword = async (request, reply) => {
     // Generate OTP and store it
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const expireTime = new Date(Date.now() + 5 * 60000); // 5 minutes from now
-    await db.collection("KartavyaPortfolioOTP").deleteMany({});
-    await db.collection("KartavyaPortfolioOTP").insertOne({ otp, expireTime });
+    await db.collection("DarshanPortfolioOTP").deleteMany({});
+    await db.collection("DarshanPortfolioOTP").insertOne({ otp, expireTime });
     reply.send({
       success: true,
       otpSent: true,
@@ -1048,7 +1048,7 @@ const compareOTP = async (request, reply) => {
   const { otp, rememberMe = false } = request.body;
   const db = getDB();
   try {
-    const otpData = await db.collection("KartavyaPortfolioOTP").findOne({});
+    const otpData = await db.collection("DarshanPortfolioOTP").findOne({});
     if (!otpData || otpData.otp !== otp) {
       return reply.code(400).send({ message: "Invalid OTP" });
     }
@@ -1071,7 +1071,7 @@ const compareOTP = async (request, reply) => {
     });
 
     // Invalidate the OTP after use
-    await db.collection("KartavyaPortfolioOTP").deleteOne({});
+    await db.collection("DarshanPortfolioOTP").deleteOne({});
     return reply.send({ success: true, message: "Logged in successfully!" });
   } catch (err) {
     reply.code(500).send({ message: "Server error" });
@@ -1091,7 +1091,7 @@ const setAdminCredentials = async (request, reply) => {
   const { userName, password, currentPassword } = request.body;
   const db = getDB();
   try {
-    const admin = await db.collection("KartavyaPortfolio").findOne({});
+    const admin = await db.collection("DarshanPortfolio").findOne({});
     if (!admin) {
       return reply.code(404).send({ message: "Admin not found." });
     }
@@ -1103,8 +1103,8 @@ const setAdminCredentials = async (request, reply) => {
     }
     const hashedUsername = await bcrypt.hash(userName, 10);
     const hashedPassword = await bcrypt.hash(password, 10);
-    await db.collection("KartavyaPortfolio").deleteMany({});
-    await db.collection("KartavyaPortfolio").insertOne({
+    await db.collection("DarshanPortfolio").deleteMany({});
+    await db.collection("DarshanPortfolio").insertOne({
       userName: hashedUsername,
       password: hashedPassword,
     });
@@ -1146,8 +1146,8 @@ const getCollectionCounts = async (request, reply) => {
       yearInReviewTable: await db
         .collection("yearInReviewTable")
         .countDocuments({ deleted: { $ne: true } }),
-      KartavyaPortfolio: await db
-        .collection("KartavyaPortfolio")
+      DarshanPortfolio: await db
+        .collection("DarshanPortfolio")
         .countDocuments(),
       FeedTable: await db
         .collection("FeedTable")

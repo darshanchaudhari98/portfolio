@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import Resume from "../../assets/Singh_Kartavya_Resume2025.pdf";
+import Resume from "../../assets/Darshan_Chaudhari_Resume2025.pdf";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../services/variants";
 import "../../styles/NavBar.css";
@@ -214,7 +214,7 @@ const NavBar = ({ isBatterySavingOn, addTab }) => {
             // }
           }}
         >
-          <b>Kartavya Singh</b>
+          <b>Darshan Chaudhari</b>
         </motion.a>
 
         {/* Toggle button for menu */}
@@ -317,30 +317,7 @@ const NavBar = ({ isBatterySavingOn, addTab }) => {
                 <span className="navbar-text">PROJECTS</span>
               </a>
             </motion.li>
-            <motion.li
-              className={
-                activeLink === "experience" ? "active nav-item" : "nav-item"
-              }
-              whileHover={screenWidth > 992 ? { scale: 1.1, rotate: -2 } : {}}
-              whileTap={screenWidth > 992 ? { scale: 0.9, rotate: 2 } : {}}
-            >
-              <a
-                href="#experience"
-                className={
-                  activeLink === "experience"
-                    ? "active navbar-link"
-                    : "navbar-link"
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("experience");
-                  // onUpdateActiveLink("experience");
-                  // setScrolled(true);
-                }}
-              >
-                <span className="navbar-text">EXPERIENCE</span>
-              </a>
-            </motion.li>
+
             <motion.li
               className={
                 activeLink === "contact" ? "active nav-item" : "nav-item"
@@ -388,7 +365,7 @@ const NavBar = ({ isBatterySavingOn, addTab }) => {
               whileTap={screenWidth > 992 ? { scale: 0.9, rotate: 2 } : {}}
             >
               <a
-                download="Kartavya-Singh-Resume-2025.pdf"
+                download="Darshan-Chaudhari-Resume-2025.pdf"
                 href={Resume}
                 className="navbar-link"
                 target="_blank"
@@ -409,7 +386,7 @@ const NavBar = ({ isBatterySavingOn, addTab }) => {
                 className={"navbar-link ai-chat-nav"}
                 onClick={(e) => {
                   e.preventDefault();
-                  addTab("AIChatTab", { title: "Kartavya's AI Companion" });
+                  addTab("AIChatTab", { title: "Darshan's AI Companion" });
                   setMenuOpen(false);
                 }}
               >

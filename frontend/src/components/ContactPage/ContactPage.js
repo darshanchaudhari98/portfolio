@@ -143,12 +143,12 @@ function ContactPage({ isBatterySavingOn, addTab }) {
                 }
               >
                 Email:{" "}
-                <a href="mailto:singhk6@mail.uc.edu" className="lead">
-                  singhk6@mail.uc.edu
+                <a href="mailto:darshanchaudhari9898@gmail.com" className="lead">
+                  darshanchaudhari9898@gmail.com
                 </a>{" "}
                 ||{" "}
-                <a href="mailto:kartavya.singh17@yahoo.com" className="lead">
-                  kartavya.singh17@yahoo.com
+                <a href="mailto:darshanchaudhari9898@gmail.com" className="lead">
+                  darshanchaudhari9898@gmail.com
                 </a>
               </motion.h5>
               <motion.h5
@@ -160,8 +160,8 @@ function ContactPage({ isBatterySavingOn, addTab }) {
                 }
               >
                 Phone:{" "}
-                <a href="tel:5138377683" className="lead">
-                  513-837-7683
+                <a href="tel:9420308033" className="lead">
+                  9420308033
                 </a>
               </motion.h5>
               <br />

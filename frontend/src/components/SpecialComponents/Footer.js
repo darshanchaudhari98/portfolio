@@ -5,29 +5,19 @@ import "../../styles/Footer.css";
 const Footer = ({ isBatterySavingOn, addTab }) => {
   const linksData = [
     {
-      href: "https://github.com/Kartavya904",
+      href: "https://github.com/darshanchaudhari98",
       icon: require("../../assets/img/icons/github.png"),
       label: "GitHub",
     },
     {
-      href: "https://devpost.com/Kartavya904",
-      icon: require("../../assets/img/icons/devpost.png"),
-      label: "DevPost",
-    },
-    {
-      href: "https://www.linkedin.com/in/kartavya-singh-singhk6",
+      href: "https://www.linkedin.com/in/darshan-chaudhari-8076b1200/",
       icon: require("../../assets/img/icons/linkedin.png"),
       label: "LinkedIn",
     },
     {
-      href: "https://www.instagram.com/kartavya1710/",
+      href: "https://www.instagram.com/djchaudhari98/",
       icon: require("../../assets/img/icons/instagram.png"),
       label: "Instagram",
-    },
-    {
-      href: "https://discordapp.com/users/439541365580365835",
-      icon: require("../../assets/img/icons/discord.png"),
-      label: "Discord",
     },
     {
       href: "https://calendly.com/singhk6/book-time-with-kartavya",
@@ -88,7 +78,7 @@ const Footer = ({ isBatterySavingOn, addTab }) => {
         whileTap={isBatterySavingOn ? {} : { scale: 0.99 }}
         onTap={() => scrollToSection("home")}
       >
-        <h2>Kartavya Singh</h2>
+        <h2>Darshan Chaudhari</h2>
         <p>Creating Impactful Solutions Through Code</p>
       </motion.div>
 
@@ -99,7 +89,7 @@ const Footer = ({ isBatterySavingOn, addTab }) => {
         whileInView={isBatterySavingOn ? {} : { opacity: 1, scale: 1 }}
         transition={isBatterySavingOn ? {} : { delay: 0, type: "spring" }}
       >
-        {["about", "skills", "projects", "experience"].map((id, index) => (
+        {["about", "skills", "projects"].map((id, index) => (
           <li key={id}>
             <motion.button
               onClick={() => scrollToSection(id)}

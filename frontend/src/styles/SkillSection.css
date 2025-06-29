@@ -307,7 +307,25 @@
   }
 
   .skill-card-name {
-    display: none;
+    font-size: 10px;
+    margin-top: 5px;
+  }
+
+  .skill-items {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .skill-item {
+    flex: 0 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    min-width: 80px;
+  }
+
+  .proficiency-table {
+    font-size: 10px;
+    padding: 1px 3px;
   }
 }
 
@@ -325,6 +343,16 @@
 
   .skill-card-description {
     font-size: 10px;
+  }
+
+  .skill-item {
+    flex: 0 1 calc(33.33% - 10px);
+    max-width: calc(33.33% - 10px);
+    min-width: 70px;
+  }
+
+  .skill-card-name {
+    font-size: 9px;
   }
 }
 

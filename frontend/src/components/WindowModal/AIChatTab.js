@@ -369,7 +369,7 @@ const AIChatBot = ({
             }}
           />
           <h2 className="chat-title proficient" style={{ flexGrow: 1 }}>
-            Kartavya's AI Companion
+            Darshan's AI Companion
           </h2>
         </motion.div>
       )}
@@ -472,7 +472,7 @@ const AIChatBot = ({
             transition={{ delay: 0.7, type: "ease" }}
             className="chat-title proficient"
           >
-            Kartavya's AI Companion
+            Darshan's AI Companion
           </motion.h2>
           <motion.h4
             initial={{ opacity: 0, scale: 0 }}
@@ -589,7 +589,7 @@ const AIChatBot = ({
                   ? "Generating Response..."
                   : listening
                   ? "Transcribing... Please ask!"
-                  : "Ask any question about me!"
+                  : "Ask any question about Darshan!"
               }`}
               onKeyDown={(e) => {
                 // Enter=send, Shift+Enter=newline

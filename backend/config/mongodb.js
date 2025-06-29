@@ -17,6 +17,10 @@ const client = new MongoClient(uri, {
   // these driver options are no‑ops in v4+ but harmless
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  // Add timeout options to handle connection issues
+  serverSelectionTimeoutMS: 30000,
+  connectTimeoutMS: 30000,
+  socketTimeoutMS: 30000,
 });
 
 let dbPrimary, dbAI;

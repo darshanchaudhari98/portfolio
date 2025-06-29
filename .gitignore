@@ -47,3 +47,9 @@ backend/.cache/
 .next/
 .nuxt/
 dist/
+
+# Miscellaneous backup files
+Miscellaneous/
+
+# Personal sensitive files
+backend/data/*.pdf

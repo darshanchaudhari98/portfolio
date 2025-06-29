@@ -54,7 +54,9 @@ const PauseTimer = ({
 
     const handleHover = () => {
       setIsVisible(true); // Show PauseTimer
-      glideRef.current.pause(); // Pause Glide autoplay
+      if (glideRef.current) {
+        glideRef.current.pause(); // Pause Glide autoplay
+      }
       setCountdown(5.0); // Reset countdown to 5.00
       isHovered = true;
 
@@ -65,19 +67,23 @@ const PauseTimer = ({
       hoverTimeout = setTimeout(() => {
         setIsVisible(false); // Hide PauseTimer
         isHovered = false;
-        glideRef.current.play(); // Resume Glide autoplay
+        if (glideRef.current) {
+          glideRef.current.play(); // Resume Glide autoplay
+        }
       }, 11000);
     };
 
     const handleUnhover = () => {
       isHovered = false;
-      glideRef.current.play(); // Resume Glide autoplay
+      if (glideRef.current) {
+        glideRef.current.play(); // Resume Glide autoplay
+      }
       startTime = performance.now(); // Reset start time
     };
 
     const glideElement = document.querySelector(".glide");
 
-    if (autoplay) {
+    if (autoplay && glideElement) {
       glideElement.addEventListener("mouseenter", handleHover);
       glideElement.addEventListener("mouseleave", handleUnhover);
 
@@ -99,8 +105,10 @@ const PauseTimer = ({
     return () => {
       clearInterval(interval); // Cleanup interval
       clearTimeout(hoverTimeout); // Cleanup timeout
-      glideElement.removeEventListener("mouseenter", handleHover);
-      glideElement.removeEventListener("mouseleave", handleUnhover);
+      if (glideElement) {
+        glideElement.removeEventListener("mouseenter", handleHover);
+        glideElement.removeEventListener("mouseleave", handleUnhover);
+      }
     };
   }, [autoplay, glideRef, setCountdown]);
 
@@ -148,6 +156,7 @@ const SkillSection = ({ isBatterySavingOn }) => {
     const loadSkills = async () => {
       try {
         const fetchedSkills = await fetchSkills();
+        console.log("Fetched skills data:", fetchedSkills); // Debug log
         setSkillCategories(fetchedSkills);
       } catch (error) {
         console.error("Error fetching skills:", error);
@@ -199,7 +208,11 @@ const SkillSection = ({ isBatterySavingOn }) => {
 
     glideRef.current.mount();
 
-    return () => glideRef.current.destroy();
+    return () => {
+      if (glideRef.current) {
+        glideRef.current.destroy();
+      }
+    };
   }, [skillCategories, autoplay, isMediumWidth, isSmallWidth]);
 
   return (
@@ -272,9 +285,12 @@ const SkillSection = ({ isBatterySavingOn }) => {
                           exit="hidden"
                         >
                           <motion.img
-                            src={icons[skill.logo]}
-                            alt=""
+                            src={icons[skill.logo] || icons.web}
+                            alt={skill.name}
                             className={`skill-card-icon`}
+                            onError={(e) => {
+                              e.target.src = icons.web; // Fallback to web icon if image fails to load
+                            }}
                             style={{
                               boxShadow: `0 0 ${
                                 window.innerWidth > 768 ? 7.5 : 2.5

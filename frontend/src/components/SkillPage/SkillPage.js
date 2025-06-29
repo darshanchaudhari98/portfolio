@@ -147,6 +147,7 @@ function SkillPage({ isBatterySavingOn, isWindowModalVisible }) {
     const loadSkills = async () => {
       try {
         const fetchedSkills = await fetchSkillsComponents();
+        console.log("Fetched skill components data:", fetchedSkills); // Debug log
         setSkills(fetchedSkills);
       } catch (error) {
         console.error("Error fetching skills:", error);
@@ -286,14 +287,14 @@ function SkillPage({ isBatterySavingOn, isWindowModalVisible }) {
       const totalHours = 1300;
       const url = `${process.env.REACT_APP_API_URI}/github-stats/top-langs`;
 
-      // Fallback data if fetch fails or returns nothing
+      // Updated fallback data to reflect new skills
       const fallbackLangJson = {
-        JavaScript: "33.06%",
-        Python: "32.19%",
-        HTML: "14.98%",
-        "C++": "8.53%",
-        CSS: "7.12%",
-        "ASP.NET": "4.12%",
+        JavaScript: "25.5%",
+        Python: "22.3%",
+        Dart: "18.7%",
+        HTML: "12.4%",
+        CSS: "11.2%",
+        C: "9.9%",
       };
 
       try {
@@ -445,7 +446,7 @@ function SkillPage({ isBatterySavingOn, isWindowModalVisible }) {
             <motion.div className="last-skill-row">
               <motion.div className="last-skill-column column1">
                 <a
-                  href="https://github.com/Kartavya904/#topLang"
+                  href="https://github.com/darshanc4696"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="github-icon"
