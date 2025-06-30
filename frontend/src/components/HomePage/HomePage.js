@@ -9,7 +9,6 @@ import {
   AnimatePresence,
   useScroll,
   useTransform,
-  delay,
 } from "framer-motion";
 import { zoomIn } from "../../services/variants";
 import "../../styles/HomePage.css";

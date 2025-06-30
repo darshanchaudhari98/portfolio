@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import { zoomIn, fadeIn } from "../../services/variants";
 import "../../styles/SkillPage.css";
 import github from "../../assets/img/icons/github.png";
-import SkillBG from "./SkillBG.js";
+// import SkillBG from "./SkillBG.js";
 import SkillGraphCarousel from "./SkillGraph";
 import SkillSection from "./SkillSection";
 import { fetchSkillsComponents } from "../../services/skillComponentService";
@@ -16,7 +16,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Register necessary components for Chart.js
 ChartJS.register(
@@ -139,7 +139,7 @@ const BarChart = ({ topLangs, isBatterySavingOn }) => {
 };
 
 function SkillPage({ isBatterySavingOn, isWindowModalVisible }) {
-  const [skillScreenWidth, setSkillScreenWidth] = useState(window.innerWidth);
+  const [, setSkillScreenWidth] = useState(window.innerWidth);
   const [topLangs, setTopLangs] = useState({ labels: [], data: [] });
   const [skills, setSkills] = useState([]);
 

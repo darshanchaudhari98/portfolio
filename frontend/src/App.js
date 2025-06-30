@@ -40,15 +40,15 @@ function App({ isBatterySavingOn, setIsBatterySavingOn }) {
   const [queriesSent, setQueriesSent] = useState(0);
   const cancelRef = useRef(false);
 
-  const [showChatTip, setShowChatTip] = useState(() => {
-    // hide forever if user previously closed
-    return localStorage.getItem("hideAIChatTip") !== "true";
-  });
+  // const [showChatTip, setShowChatTip] = useState(() => {
+  //   // hide forever if user previously closed
+  //   return localStorage.getItem("hideAIChatTip") !== "true";
+  // });
 
-  const dismissChatTip = () => {
-    setShowChatTip(false);
-    localStorage.setItem("hideAIChatTip", "true");
-  };
+  // const dismissChatTip = () => {
+  //   setShowChatTip(false);
+  //   localStorage.setItem("hideAIChatTip", "true");
+  // };
 
   // useEffect(() => {
   //   const cleanupInterval = setInterval(() => {
@@ -145,12 +145,12 @@ function App({ isBatterySavingOn, setIsBatterySavingOn }) {
     setIsClosed(false);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
 
   // add this at the top of your component file
   const delay = useCallback(
@@ -319,7 +319,7 @@ function App({ isBatterySavingOn, setIsBatterySavingOn }) {
         setQuery("");
       }
     },
-    [chatStarted, conversationMemory, delay, queriesSent]
+    [API_URL, chatStarted, conversationMemory, delay, queriesSent]
   );
 
   // --- Stop generation handler ---

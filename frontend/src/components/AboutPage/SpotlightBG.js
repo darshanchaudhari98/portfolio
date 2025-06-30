@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback, useMemo } from "react";
 
 export const SpotlightBG = () => {
   const isTouchDevice =
@@ -19,17 +19,17 @@ export const SpotlightBG = () => {
   }, [clickCount]);
 
   // Global gradient stops
-  const gradientStops = [
+  const gradientStops = useMemo(() => [
     { offset: 0, color: [255, 111, 97] }, // Coral
     { offset: 0.2, color: [244, 208, 63] }, // Yellow
     { offset: 0.4, color: [142, 68, 173] }, // Purple
     { offset: 0.6, color: [26, 188, 156] }, // Aqua
     { offset: 0.8, color: [52, 152, 219] }, // Blue
     { offset: 1, color: [255, 111, 97] }, // Loop back to Coral
-  ];
+  ], []);
 
   // Compute global gradient color at normalized position t with the given opacity.
-  const getGlobalGradientColor = (t, opacity) => {
+  const getGlobalGradientColor = useCallback((t, opacity) => {
     t = Math.min(Math.max(t, 0), 1);
     let startStop, endStop;
     for (let i = 0; i < gradientStops.length - 1; i++) {
@@ -55,7 +55,7 @@ export const SpotlightBG = () => {
       startStop.color[2] + localT * (endStop.color[2] - startStop.color[2])
     );
     return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-  };
+  }, [gradientStops]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -230,7 +230,7 @@ export const SpotlightBG = () => {
         window.removeEventListener("click", handleMouseClick);
       }
     };
-  }, []);
+  }, [getGlobalGradientColor, isTouchDevice]);
 
   return (
     <canvas

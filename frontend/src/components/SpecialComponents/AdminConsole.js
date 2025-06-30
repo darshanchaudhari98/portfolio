@@ -585,7 +585,7 @@ const AdminConsole = ({ logout }) => {
                                       ? activeFormData[field].data
                                       : `data:${activeFormData[field].contentType};base64,${activeFormData[field].data}`
                                   }
-                                  alt="Image Preview"
+                                  alt="Preview"
                                   style={{
                                     maxWidth: "100%",
                                     marginBottom: "10px",

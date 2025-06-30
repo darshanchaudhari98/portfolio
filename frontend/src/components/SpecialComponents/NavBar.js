@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Resume from "../../assets/Darshan_Chaudhari_Resume2025.pdf";
 import { motion } from "framer-motion";
-import { fadeIn } from "../../services/variants";
+// import { fadeIn } from "../../services/variants";
 import "../../styles/NavBar.css";
 
 const NavBar = ({ isBatterySavingOn, addTab }) => {

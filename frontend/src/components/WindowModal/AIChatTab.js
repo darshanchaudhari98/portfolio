@@ -1,10 +1,10 @@
 // AIChatTab.js
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSpeechInput } from "../../hooks/useSpeechInput";
 import { useSpring, animated } from "@react-spring/web";
 import ReactMarkdown from "react-markdown";
 // import remarkGfm from "remark-gfm";
-import { scale, zoomIn } from "../../services/variants";
+import { zoomIn } from "../../services/variants";
 import { motion } from "framer-motion";
 import "../../styles/AIChatBot.css";
 
@@ -42,7 +42,7 @@ const AIChatBot = ({
   stopGenerating,
 }) => {
   const [hasSavedChat, setHasSavedChat] = useState(false);
-  const [spoken, setSpoken] = useState(false);
+  const [, setSpoken] = useState(false);
   const { listening, supported, permission, start, stop } = useSpeechInput({
     onResult: (transcript, isFinal) => {
       if (isFinal) {
@@ -90,7 +90,7 @@ const AIChatBot = ({
         setHasSavedChat(!!(saved && JSON.parse(saved).length));
       }
     } catch {}
-  }, []);
+  }, [setChatHistory, setChatStarted, setConversationMemory, setQueriesSent]);
 
   useEffect(() => {
     if (chatHistory.length > 0) {
@@ -104,7 +104,7 @@ const AIChatBot = ({
   const [clicked, setClicked] = useState(false);
   const [isCooldown, setIsCooldown] = useState(false);
   const clickCount = useRef(0); // Use useRef to keep track of click count across renders
-  const [key, setKey] = useState(0); // State to reset the animation on click
+  // const [key, setKey] = useState(0); // State to reset the animation on click
   const [frameIndex, setFrameIndex] = useState(0); // Track current frame index
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
@@ -173,7 +173,7 @@ const AIChatBot = ({
     setShowToast(
       queriesSent >= MAX_QUERIES - TOAST_THRESHOLD && queriesSent <= MAX_QUERIES
     );
-  }, [queriesSent]);
+  }, [queriesSent, MAX_QUERIES]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -276,8 +276,8 @@ const AIChatBot = ({
     if (audioPlaying) {
       const last = msgs[msgs.length - 1];
       // read the computed CSS padding-bottom (e.g. "12px")
-      const comp = window.getComputedStyle(last).paddingBottom;
-      const current = parseFloat(comp) || 0;
+      // const comp = window.getComputedStyle(last).paddingBottom;
+      // const current = parseFloat(comp) || 0;
       last.style.marginBottom = `20px`;
     }
   }, [audioPlaying, chatHistory]);
@@ -292,7 +292,7 @@ const AIChatBot = ({
     return () => {
       handleAudioStop();
     };
-  }, [isMinimized, isClosed]);
+  }, [isMinimized, isClosed, audioPlaying]);
 
   const starterQuestions = [
     "What skills have your developed from your experiences?",

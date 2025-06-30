@@ -12,9 +12,9 @@ function parseColorString(colorString) {
 /**
  * Convert the color object { r, g, b, a } to a string "rgba(r, g, b, a)".
  */
-function toRgbaString({ r, g, b, a }) {
-  return `rgba(${r}, ${g}, ${b}, ${a})`;
-}
+// function toRgbaString({ r, g, b, a }) {
+//   return `rgba(${r}, ${g}, ${b}, ${a})`;
+// }
 
 /**
  * Darken a given color by subtracting a fixed amount from each channel.
@@ -293,6 +293,7 @@ export default function GradientBG({
     mousePos,
     darkenedStart,
     darkenedEnd,
+    circles,
   ]);
 
   return (

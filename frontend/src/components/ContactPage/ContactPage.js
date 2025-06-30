@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { zoomIn, fadeIn } from "../../services/variants";
+import { fadeIn } from "../../services/variants";
 import { motion, AnimatePresence } from "framer-motion";
 import { styled, keyframes } from "@stitches/react";
 import Footer from "../SpecialComponents/Footer";
@@ -9,7 +9,7 @@ import "../../styles/ContactPage.css";
 function ContactPage({ isBatterySavingOn, addTab }) {
   const form = useRef();
   const [isTouchDevice, setIsTouchDevice] = useState(false);
-  const [isSent, setIsSent] = useState(null); // null for no status, true for success, false for error
+  const [isSent] = useState(null); // null for no status, true for success, false for error
   const containerRef = useRef(null);
   // 1. Disable state and Toast state
   const [isDisabled, setIsDisabled] = useState(false);
